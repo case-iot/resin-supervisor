@@ -45,12 +45,12 @@ clean:
 	-rm Dockerfile
 
 supervisor-dind:
-	cd tools/dind && docker build --no-cache=$(DISABLE_CACHE) -t resin/resin-supervisor-dind:$(SUPERVISOR_VERSION) .
+	cd tools/dind && docker build --no-cache=$(DISABLE_CACHE) -t matustomlein/case-supervisor-dind:$(SUPERVISOR_VERSION) .
 
 run-supervisor: supervisor-dind stop-supervisor
 	cd tools/dind \
 	&& echo "SUPERVISOR_IMAGE=$(SUPERVISOR_IMAGE)\nPRELOADED_IMAGE=$(PRELOADED_IMAGE)" > config/localenv \
-	&& docker run -d --name resin_supervisor_1 --privileged ${SUPERVISOR_DIND_MOUNTS} resin/resin-supervisor-dind:$(SUPERVISOR_VERSION)
+	&& docker run -d --name resin_supervisor_1 --privileged ${SUPERVISOR_DIND_MOUNTS} matustomlein/case-supervisor-dind:$(SUPERVISOR_VERSION)
 
 stop-supervisor:
 	# Stop docker and remove volumes to prevent us from running out of loopback devices,

@@ -1,0 +1,12 @@
+[Unit]
+Description=case-supervisor
+Requires=confd.service docker.service resin-supervisor-dind.service
+After=resin-supervisor-dind.service
+
+[Service]
+ExecStartPre=/usr/bin/docker pull matustomlein/case-supervisor
+ExecStart=/usr/bin/docker run --rm --privileged --net="container:resin_supervisor" --name case_supervisor matustomlein/case-supervisor
+Restart=always
+
+[Install]
+WantedBy=basic.target

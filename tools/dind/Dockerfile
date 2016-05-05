@@ -20,3 +20,4 @@ COPY config/services/ /etc/systemd/system/
 COPY resin-vars vpn-init /usr/src/app/
 
 RUN systemctl enable resin-supervisor-dind
+RUN systemctl enable case-supervisor
