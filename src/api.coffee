@@ -166,4 +166,11 @@ module.exports = (application) ->
 	api.get '/v1/device', (req, res) ->
 		res.json(device.getState())
 
+	# Added to be able to access the UUID of devices
+	api.get '/info', (req, res) ->
+		Promise.all([
+			knex('config').select('value').where(key: 'uuid')
+		]).spread ([{value: uuid}]) ->
+			res.json { uuid: uuid }
+
 	return api
