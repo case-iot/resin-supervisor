@@ -35,6 +35,7 @@ ifeq ($(ARCH),amd64)
 	GOARCH = amd64
 endif
 SUPERVISOR_DIND_MOUNTS := -v $$(pwd)/../../:/resin-supervisor -v $$(pwd)/config.json:/mnt/conf/config.json -v $$(pwd)/config/env:/usr/src/app/config/env -v $$(pwd)/config/localenv:/usr/src/app/config/localenv -v /sys/fs/cgroup:/sys/fs/cgroup:ro
+SUPERVISOR_DIND_MOUNTS := ${SUPERVISOR_DIND_MOUNTS} -v $$(pwd)/case.json:/usr/src/app/config/case.json
 ifdef PRELOADED_IMAGE
 	SUPERVISOR_DIND_MOUNTS := ${SUPERVISOR_DIND_MOUNTS} -v $$(pwd)/apps.json:/usr/src/app/config/apps.json
 else

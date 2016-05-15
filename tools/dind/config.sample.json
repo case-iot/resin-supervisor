@@ -1,0 +1,24 @@
+{
+  "applicationName":"edisonapp",
+  "applicationId":"92542",
+  "deviceType":"intel-edison",
+  "userId":"8032",
+  "username":"matus_tomlein",
+  "files":{
+    "network/settings":"[global]\nOfflineMode=false\n\n[WiFi]\nEnable=false\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
+    "network/network.config":"[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4"
+  },
+  "appUpdatePollInterval":"60000",
+  "listenPort":"48484",
+  "vpnPort":"443",
+  "apiEndpoint":"https://api.resin.io",
+  "vpnEndpoint":"vpn.resin.io",
+  "registryEndpoint":"registry.resin.io",
+  "pubnubSubscribeKey":"sub-c-bananas",
+  "pubnubPublishKey":"pub-c-bananas",
+  "mixpanelToken":"bananas",
+  "apiKey":"supersecretapikey",
+  "wifiSsid":"xx",
+  "wifiKey":"xx",
+  "registered_at":1462174300372
+}

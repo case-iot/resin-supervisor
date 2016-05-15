@@ -5,4 +5,5 @@ bin/gosuper
 gosuper/bin/
 tools/dind/config.json
 tools/dind/apps.json
+tools/dind/case.json
 tools/dind/config/localenv

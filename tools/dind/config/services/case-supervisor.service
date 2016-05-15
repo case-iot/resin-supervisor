@@ -4,8 +4,8 @@ Requires=confd.service docker.service resin-supervisor-dind.service
 After=resin-supervisor-dind.service
 
 [Service]
-ExecStartPre=/usr/bin/docker pull matustomlein/case-supervisor
-ExecStart=/usr/bin/docker run --rm --privileged --net="container:resin_supervisor" --name case_supervisor matustomlein/case-supervisor
+ExecStartPre=/bin/bash -c '/usr/bin/docker pull $(jq -r .imageId /usr/src/app/config/case.json)'
+ExecStart=/bin/bash -c '/usr/bin/docker run --rm --privileged --net="container:resin_supervisor" --name case_supervisor $(jq -r .imageId /usr/src/app/config/case.json)'
 Restart=always
 
 [Install]
